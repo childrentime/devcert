@@ -6,7 +6,7 @@ import {
 } from "fs";
 import { sync as mkdirp } from "mkdirp";
 import { template as makeTemplate } from "lodash";
-import applicationConfigPath = require("application-config-path");
+import applicationConfigPath from "application-config-path";
 import eol from "eol";
 import { mktmp, numericHash } from "./utils";
 

@@ -1,6 +1,6 @@
 {
   "name": "@childrentime/devcert",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "Generate trusted local SSL/TLS certificates for local SSL development",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
