@@ -9,8 +9,12 @@ import { template as makeTemplate } from "lodash";
 import applicationConfigPath from "application-config-path";
 import eol from "eol";
 import { mktmp, numericHash } from "./utils";
+import { fileURLToPath } from "node:url";
 
-const __dirname = dirname(__filename);
+// Isomorphic `__dirname` https://antfu.me/posts/isomorphic-dirname
+const _dirname = typeof __dirname !== 'undefined'
+  ? __dirname
+  : dirname(fileURLToPath(import.meta.url))
 // Platform shortcuts
 export const isMac = process.platform === "darwin";
 export const isLinux = process.platform === "linux";
@@ -68,7 +72,7 @@ export const opensslDatabaseFilePath = configPath(
   "index.txt"
 );
 export const caSelfSignConfig = path.join(
-  __dirname,
+  _dirname,
   "../openssl-configurations/certificate-authority-self-signing.conf"
 );
 
@@ -94,7 +98,7 @@ export function withDomainSigningRequestConfig(
   let tmpFile = mktmp();
   let source = readFile(
     path.join(
-      __dirname,
+      _dirname,
       "../openssl-configurations/domain-certificate-signing-requests.conf"
     ),
     "utf-8"
@@ -114,7 +118,7 @@ export function withDomainCertificateConfig(
   const subjectAltNames = generateSubjectAltNames(domains);
   let tmpFile = mktmp();
   let source = readFile(
-    path.join(__dirname, "../openssl-configurations/domain-certificates.conf"),
+    path.join(_dirname, "../openssl-configurations/domain-certificates.conf"),
     "utf-8"
   );
   let template = makeTemplate(source);
