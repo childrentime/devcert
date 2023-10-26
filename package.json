@@ -1,12 +1,16 @@
 {
-  "name": "devcert",
-  "version": "1.2.2",
+  "name": "@childrentime/devcert",
+  "version": "1.2.3",
   "description": "Generate trusted local SSL/TLS certificates for local SSL development",
   "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "tsup",
+    "dev": "tsup --watch",
     "prepublishOnly": "npm run build",
+    "publish:ci": "tsx scripts/publish.ts",
+    "release:prepare": "bump",
     "test": "echo \"Ha.\" && exit 1"
   },
   "repository": {
@@ -30,17 +34,20 @@
     "typescript": "4.3.2"
   },
   "dependencies": {
+    "@childrentime/devcert": "^1.2.2",
+    "@jsdevtools/version-bump-prompt": "^6.1.0",
     "@types/configstore": "^2.1.1",
     "@types/debug": "^0.0.30",
     "@types/get-port": "^3.2.0",
     "@types/glob": "^5.0.34",
     "@types/lodash": "^4.14.92",
     "@types/mkdirp": "^0.5.2",
-    "@types/node": "^8.5.7",
+    "@types/node": "^20.8.9",
     "@types/rimraf": "^2.0.2",
     "@types/tmp": "^0.0.33",
     "application-config-path": "^0.1.0",
     "command-exists": "^1.2.4",
+    "consola": "^3.2.3",
     "debug": "^3.1.0",
     "eol": "^0.9.1",
     "get-port": "^3.2.0",
@@ -52,6 +59,8 @@
     "rimraf": "^2.6.2",
     "sudo-prompt": "^8.2.0",
     "tmp": "^0.0.33",
-    "tslib": "^1.10.0"
+    "tslib": "^1.10.0",
+    "tsup": "^7.2.0",
+    "tsx": "^3.14.0"
   }
 }
