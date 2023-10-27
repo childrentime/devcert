@@ -1,6 +1,6 @@
 {
   "name": "@childrentime/devcert",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "Generate trusted local SSL/TLS certificates for local SSL development",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/davewasmer/devcert.git"
+    "url": "https://github.com/childrentime/devcert"
   },
   "keywords": [
     "ssl",
@@ -23,12 +23,12 @@
     "openssl",
     "trust"
   ],
-  "author": "Dave Wasmer",
+  "author": "Dave Wasmer, LianWen Wu",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/davewasmer/devcert/issues"
+    "url": "https://github.com/childrentime/devcert/issues"
   },
-  "homepage": "https://github.com/davewasmer/devcert#readme",
+  "homepage": "https://github.com/childrentime/devcert#readme",
   "devDependencies": {
     "standard-version": "^9.5.0",
     "typescript": "4.3.2"
