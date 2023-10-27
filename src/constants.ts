@@ -10,6 +10,7 @@ import applicationConfigPath from "application-config-path";
 import eol from "eol";
 import { mktmp, numericHash } from "./utils";
 import { fileURLToPath } from "node:url";
+import {homedir} from 'os';
 
 // Isomorphic `__dirname` https://antfu.me/posts/isomorphic-dirname
 const _dirname = typeof __dirname !== 'undefined'
@@ -156,7 +157,7 @@ export function getLegacyConfigDir(): string {
     let userHome =
       isLinux && uid === 0
         ? path.resolve("/usr/local/share")
-        : require("os").homedir();
+        : homedir();
     return path.join(userHome, ".config", "devcert");
   }
 }
